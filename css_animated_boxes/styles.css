@@ -1,0 +1,112 @@
+:root {
+    --magenta: #F15BB5;
+    --yellow: #FEE440;
+    --cyan: #00BBF9;
+    --turquoise: #00F5D4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    background: #222;
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    place-items: center;
+}
+
+#wrapper {
+    aspect-ratio: 1.618;
+    width: 90vmin;
+    position: relative;
+}
+
+#wrapper > .shape {
+    width: 30%;
+    height: 30%;
+    background-color: rgba(255, 255, 255, 5%);
+    position: absolute;
+    transition: top, left, width, height, border-radius;
+    transition-duration: 750ms;
+    transition-timing-function: ease-in-out;
+}
+
+#wrapper > .shape:nth-child(1) {
+    background-color: var(--cyan);
+    z-index: 2;
+}
+#wrapper > .shape:nth-child(2) {
+    background-color: var(--magenta);
+    z-index: 1;
+}
+#wrapper > .shape:nth-child(3) {
+    background-color: var(--yellow);
+    z-index: 2;
+}
+#wrapper > .shape:nth-child(4) {
+    background-color: var(--turquoise);
+    z-index: 2;
+}
+
+#wrapper[data-configuration="1"] .shape:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+}
+#wrapper[data-configuration="1"] .shape:nth-child(2) {
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+}
+#wrapper[data-configuration="1"] .shape:nth-child(3) {
+    top: 50%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+}
+#wrapper[data-configuration="1"] .shape:nth-child(4) {
+    top: 25%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+}
+
+#wrapper[data-configuration="2"] .shape:nth-child(1) {
+    top: 50%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+}
+#wrapper[data-configuration="2"] .shape:nth-child(2) {
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+}
+#wrapper[data-configuration="2"] .shape:nth-child(3) {
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+}
+#wrapper[data-configuration="2"] .shape:nth-child(4) {
+    top: 25%;
+    left: 0%;
+    width: 50%;
+    height: 50%;
+}
+
+#wrapper[data-roundness="1"] .shape {
+    border-radius: 6rem;
+}
+#wrapper[data-roundness="2"] .shape {
+    border-radius: none;
+}
